@@ -83,3 +83,49 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
 }
+
+.button {
+    align-items: center;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    font-size: 45px;
+    height: 110px;
+    justify-content: center;
+    transition: filter .3s;
+    width: 110px;
+}
+
+.button.function {
+    background: #a5a5a5;
+    color: black;
+}
+
+.button.operator {
+    background: #f1a33c;
+}
+
+.button.number-0 {
+    border-radius: 55px;
+    grid-column: 1 / span 2;
+    justify-content: flex-start;
+    padding-left: 43px;
+    width: 250px;
+}
+
+.button:active,
+.button:focus {
+    filter: brightness(120%);
+}
+
+.bottom {
+    background: white;
+    border-radius: 4px;
+    bottom: 10px;
+    height: 5px;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    width: 200px;
+}
