@@ -30,5 +30,33 @@ export default class Calculator {
         }
     }
 
-    
+    operationHandler(operation) {
+        let currentValue = parseFloat(this.display.value.split(',').join(''));
+        if (this._valueInMemory == null) {
+            this._valueInMemory = currentValue;
+            this._operatorInMemory = operation;
+            this.display.reset()
+            return;
+        }
+
+        if (operation === this.operatorInMemory) {
+            switch (operation) {
+                case 'addition':
+                    this.addition(currentValue);
+                    break;
+                case 'subtraction':
+                    this.subtraction(currentValue);
+                    break;
+                case 'multiplication':
+                    this.multiplication(currentValue);
+                    break;
+                case 'division':
+                    this.division(currentValue);
+                    break;
+                default:
+                    this.memoryReset();
+                    break;
+            }
+        }
+    }
 }
