@@ -87,4 +87,19 @@ export default class Calculator {
     equal() {
         this.operationHandler(this._operatorInMemory);
     }
+
+    memoryReset() {
+        this._valueInMemory = null;
+        this._operatorInMemory = null;
+    }
+
+    parseResult(result) {
+        const [integer, decimal] = result.toString().split('.');
+        if (decimal) {
+            let length = 9 - integer.length;
+            return parseFloat(result).toLocaleString('en-US', {maximumFractionDigits: length});
+        } else {
+            return parseFloat(result).toLocaleString('en-US');
+        }
+    }
 }
