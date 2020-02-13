@@ -59,4 +59,32 @@ export default class Calculator {
             }
         }
     }
+
+    addition(number) {
+        let result = this._valueInMemory + number;
+        this.display.value = this.parseResult(result);
+        this.memoryReset();
+    }
+
+    subtraction(number) {
+        let result = this._valueInMemory - number;
+        this.display.value = this.parseResult(result);
+        this.memoryReset();
+    }
+
+    multiplication(number) {
+        let result = this._valueInMemory * number;
+        this.display.value = this.parseResult(result);
+        this.memoryReset();
+    }
+
+    division(number) {
+        let result = this._valueInMemory / number;
+        this.display.value = this.parseResult(result);
+        this.memoryReset();
+    }
+
+    equal() {
+        this.operationHandler(this._operatorInMemory);
+    }
 }
