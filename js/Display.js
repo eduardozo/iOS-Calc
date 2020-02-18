@@ -77,4 +77,21 @@ export default class Display {
             this._value.style.fontSize = '90px';
         }
     }
+
+    // Copy result by clicking on display
+    valueDisplayCopiable() {
+        this._value.addEventListener('click', () => {
+            let dValue = this.value;
+            let input = document.createElement('input');
+            document.body.appendChild(input);
+            input.value = dValue;
+            input.select();
+            input.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            this.value = 'Copied!';
+            setTimeout(() => {this.value = dValue;}, 285);
+        }, false);
+    }
+
 }
