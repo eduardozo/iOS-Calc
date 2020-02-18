@@ -52,4 +52,29 @@ export default class Display {
         currentValue = currentValue.split(',').join('');
         return this.formatOutput(currentValue.concat(input));
     }
+
+    // Format output 123,456,789.12
+    formatOutput(currentValue) {
+        const [integer, decimal] = currentValue.split('.');
+        if (decimal) {
+            return parseFloat(currentValue).toLocaleString('en-US', {maximumFractionDigits: decimal.length});
+        } else {
+            return parseFloat(currentValue).toLocaleString('en-US');
+        }
+    }
+
+    // Resize front in display in order to show more numbers.
+    resizeOutput() {
+        let outputLength = this.value.length;
+
+        if (outputLength < 6) {
+            this._value.style.fontSize = '130px';
+        } else if (outputLength === 6) {
+            this._value.style.fontSize = '120px';
+        } else if (outputLength === 7) {
+            this._value.style.fontSize = '110px';
+        } else if (outputLength >= 9) {
+            this._value.style.fontSize = '90px';
+        }
+    }
 }
