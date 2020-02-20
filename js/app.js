@@ -27,3 +27,39 @@ const CALC_KEYBOARD = {
 };
 
 const INSTRUCTIONS = document.querySelector('.instructions');
+
+// Function's Event Listeners
+AC.addEventListener('click', () => {
+    calc.display.reset();
+    calc.memoryReset();
+}, false);
+
+PM.addEventListener('click', () => {
+    calc.pm();
+}, false);
+
+PERCENT.addEventListener('click', () => {
+    calc.percent();
+}, false);
+
+
+// Operator's Event Listeners
+ADDITION.addEventListener('click', () => {
+    calc.operationHandler('addition');
+}, false);
+
+SUBTRACTION.addEventListener('click', () => {
+    calc.operationHandler('subtraction');
+}, false);
+
+MULTIPLICATION.addEventListener('click', () => {
+    calc.operationHandler('multiplication');
+}, false);
+
+DIVISION.addEventListener('click', () => {
+    calc.operationHandler('division');
+}, false);
+
+EQUAL.addEventListener('click', () => {
+    calc.equal();
+}, false);
