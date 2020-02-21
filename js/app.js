@@ -63,3 +63,15 @@ DIVISION.addEventListener('click', () => {
 EQUAL.addEventListener('click', () => {
     calc.equal();
 }, false);
+
+
+// Add Event Listeners to numbers and decimal
+NUMBERS.forEach(number => {
+    number.addEventListener('click', () => {
+        calc.display.addValue(number.textContent);
+    }, false);
+});
+
+DECIMAL.addEventListener('click', () => {
+    calc.display.addDecimal();
+}, false);
