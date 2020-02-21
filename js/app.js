@@ -75,3 +75,16 @@ NUMBERS.forEach(number => {
 DECIMAL.addEventListener('click', () => {
     calc.display.addDecimal();
 }, false);
+
+
+// Add keydown Event Listeners to the calculator.
+document.addEventListener('keydown', event => {
+    event.preventDefault();
+
+    let key = event.key;
+    if (CALC_KEYBOARD[key]) {
+        CALC_KEYBOARD[key].classList.toggle('active');
+        CALC_KEYBOARD[key].click();
+        //CALC_KEYBOARD[key].dispatchEvent(new Event('click'));
+    }
+}, false);
