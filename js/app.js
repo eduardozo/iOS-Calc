@@ -88,3 +88,13 @@ document.addEventListener('keydown', event => {
         //CALC_KEYBOARD[key].dispatchEvent(new Event('click'));
     }
 }, false);
+
+
+// Set up and display time
+const digitalClock = () => {
+    let currentTime    = new Date();
+    HOUR.textContent   = currentTime.getHours().toString();
+    MINUTE.textContent = currentTime.getMinutes().toString().padStart(2, '0');
+}
+digitalClock();
+setInterval(digitalClock, 1000);
