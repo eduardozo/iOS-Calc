@@ -98,3 +98,11 @@ const digitalClock = () => {
 }
 digitalClock();
 setInterval(digitalClock, 1000);
+
+// Hide instructions
+const hideInstructions = () => {
+    for (let child of INSTRUCTIONS.children) {
+        child.style.display = 'none';
+    }
+}
+setTimeout(hideInstructions, 17000);
